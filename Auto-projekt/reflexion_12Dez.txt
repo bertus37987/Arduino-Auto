@@ -1,0 +1,8 @@
+// 3 == links
+//wenn T2 ist auch links
+
+//5 ist rechts
+// t1 rechts 
+
+wenn T2 nidrieg wird brauchen wir Bewegung von 3
+wenn t1 niedrig wird brauchen wir Bewegung von 5
