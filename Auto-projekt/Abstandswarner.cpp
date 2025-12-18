@@ -1,11 +1,10 @@
-// Zusätzliche Variablen am Anfang
+
 int triggerPin = 11;
 int echoPin = 10;
 long dauer;
 int entfernung;
 
 void setup() {
-  // Bestehender Setup-Code...
   pinMode(triggerPin, OUTPUT); // Trigger-Pin als Ausgang
   pinMode(echoPin, INPUT);     // Echo-Pin als Eingang
 }
@@ -14,7 +13,7 @@ void loop() {
   // Abstand messen
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(triggerPin, HIGH); // 10µs Trigger-Signal senden
+  digitalWrite(triggerPin, HIGH); //  Trigger-Signal senden
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
   
@@ -24,6 +23,24 @@ void loop() {
   Serial.print("Abstand: ");
   Serial.print(entfernung);
   Serial.println(" cm");
+
+  //Logik LED
+  if(entfernung < 10){ //Rote LED als Warnung auf pin 6
+    analogWrite(6,255);
+    analogWrite(9,0);
+    analogWrite(10,0);
+  }
+  if else(entfernung < 20){ //GELBE LED auf pin 9
+    analogWrite(6,0);
+    analogWrite(9,255);
+    analogWrite(10,0);
+  
+  
+}
+else {
+  analogWrite(6,0);
+  analogWrite(9,0);
+  analogWrite(10,255);
   
   // Bumper-Logik: Stopp bei Abstand < 15 cm
   if (entfernung < 15 && entfernung > 0) {
@@ -33,5 +50,5 @@ void loop() {
     return; // Linienfolger-Code überspringen
   }
   
-  // Hier kommt dein normaler Linienfolger-Code...
+  //Rest der Linienfolge
 }
