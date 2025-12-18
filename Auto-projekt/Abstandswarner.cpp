@@ -1,19 +1,24 @@
-
 int triggerPin = 11;
 int echoPin = 10;
 long dauer;
 int entfernung;
 
 void setup() {
+  Serial.begin(9600);
   pinMode(triggerPin, OUTPUT); // Trigger-Pin als Ausgang
   pinMode(echoPin, INPUT);     // Echo-Pin als Eingang
+  pinMode(6, OUTPUT);  // Rote LED
+  pinMode(9, OUTPUT);  // Gelbe LED
+  pinMode(10, OUTPUT); // Grüne LED
+  pinMode(3, OUTPUT);  // Motor 1
+  pinMode(5, OUTPUT);  // Motor 2
 }
 
 void loop() {
   // Abstand messen
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(triggerPin, HIGH); //  Trigger-Signal senden
+  digitalWrite(triggerPin, HIGH); // Trigger-Signal senden
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
   
@@ -24,23 +29,22 @@ void loop() {
   Serial.print(entfernung);
   Serial.println(" cm");
 
-  //Logik LED
-  if(entfernung < 10){ //Rote LED als Warnung auf pin 6
-    analogWrite(6,255);
-    analogWrite(9,0);
-    analogWrite(10,0);
+  // Logik LED
+  if (entfernung < 10 && entfernung > 0) { // Rote LED als Warnung auf pin 6
+    analogWrite(6, 255);
+    analogWrite(9, 0);
+    analogWrite(10, 0);
   }
-  if else(entfernung < 20){ //GELBE LED auf pin 9
-    analogWrite(6,0);
-    analogWrite(9,255);
-    analogWrite(10,0);
-  
-  
-}
-else {
-  analogWrite(6,0);
-  analogWrite(9,0);
-  analogWrite(10,255);
+  else if (entfernung < 20 && entfernung > 0) { // GELBE LED auf pin 9
+    analogWrite(6, 0);
+    analogWrite(9, 255);
+    analogWrite(10, 0);
+  }
+  else { // Grüne LED auf pin 10
+    analogWrite(6, 0);
+    analogWrite(9, 0);
+    analogWrite(10, 255);
+  }
   
   // Bumper-Logik: Stopp bei Abstand < 15 cm
   if (entfernung < 15 && entfernung > 0) {
@@ -50,5 +54,5 @@ else {
     return; // Linienfolger-Code überspringen
   }
   
-  //Rest der Linienfolge
+  // Rest der Linienfolge kommt hier
 }
