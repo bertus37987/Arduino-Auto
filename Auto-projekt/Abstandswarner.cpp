@@ -1,3 +1,4 @@
+//Falsch weil muss infrarot sein
 int triggerPin = 11;
 int echoPin = 10;
 long dauer;
