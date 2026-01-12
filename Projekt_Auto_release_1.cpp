@@ -50,19 +50,19 @@ if (entfernung > 80) entfernung = 80;
 //Aktionen wegen dem Abstand
   // Logik LED
   if (entfernung < 10 && entfernung > 0) { // Rote LED als Warnung auf pin 6
-    analogWrite(6, 255);
-    analogWrite(8, 0);
+    analogWrite(8, 255);//Rot
+    analogWrite(9, 0);
     analogWrite(9, 0);
   }
   else if (entfernung < 20 && entfernung > 0) { // GELBE LED auf pin 9
     analogWrite(6, 0);
-    analogWrite(8, 255);
+    analogWrite(9, 255);//Gelb
     analogWrite(9, 0);
   }
   else { // Grüne LED auf pin 10
-    analogWrite(6, 0);
-    analogWrite(8,0);
-    analogWrite(9,255);
+    analogWrite(8, 0);
+    analogWrite(9,0);
+    analogWrite(10,255);//Grün
   }
  // Bumper-Logik: Stopp bei Abstand < 15 cm, 
   if (entfernung < 15 && entfernung > 0) {
