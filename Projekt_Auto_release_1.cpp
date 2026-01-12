@@ -98,9 +98,9 @@ else{
 //Logik Entscheidung ob links oder Rechts Fahren und potenzomenter
 if (links >= 550 && rechts >= 550) { //Logik Gerade aus Fahren
 
-    
+     
    
-    Serial.println(" |||||DAS AUTO FÄHRT GERADEAUS||||");
+    Serial.println(" ---DAS AUTO FÄHRT GERADEAUS--- ");
 
     geradeaus_3 = map(angespasstegeschwindikeit, 0, 1023, 0, 112);
     geradeaus_5 = map(angespasstegeschwindikeit, 0, 1023, 0, 127);
@@ -113,13 +113,13 @@ if (links >= 550 && rechts >= 550) { //Logik Gerade aus Fahren
   else if (links < 550) { //Logik Rechts Fahren Trigger wenn T2 niedrig T2 = links
     analogWrite(3, 150);//Max 225 geteilt durch 1.5
     analogWrite(5, 84);// ehmalige hälfte 127
-    Serial.println("|||DAS AUTO FÄHRT RECHTS|||");
+    Serial.println("|||DAS AUTO FÄHRT RECHTS|||");//Hinweis: Kurven werden gewollt nicht angepasst, da die werte auf diese kurven spezialiesiert wurden.
    
   }
   else if (rechts < 550) { //Logik Links Fahren Trigger wenn T1 niedrig T1 = Rechts
     analogWrite(3, 74);//112 durch 1.2
     analogWrite(5, 170);//255
-    Serial.println("|||DAS AUTO FÄHRT LINKS|||");
+    Serial.println("|||DAS AUTO FÄHRT LINKS|||");//Hinweis: Kurven werden gewollt nicht angepasst, da die werte auf diese kurven spezialiesiert wurden.
     
   }
 
