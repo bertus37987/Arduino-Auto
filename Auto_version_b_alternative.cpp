@@ -43,8 +43,8 @@ void setup(){
     digitalWrite(ledlinienfolge, HIGH); //Led der linienfolge permanent an
     Serial.begin(9600);//Serieler Monitor wird angeschaltet
   pinMode(starter, INPUT); // Starter-Pin als Eingang konfigurieren, zussamenhang startknopf
- pinMode(triggerPin,OUTPUT);
- pinMode(echoPin,INPUT);
+pinMode(triggerPin, OUTPUT);  
+pinMode(echoPin, INPUT);     
 
 }
 void loop(){
